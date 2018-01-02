@@ -47,7 +47,8 @@ const initSound = (soundBuffer) => {
     browserAudioLibrary.decodeAudioData(soundBuffer, function(buffer) {
 
         var assign = document.querySelector('.assignHighlighted');
-        var whichButton = assign.//substring of button id #
+        console.log(assign.id.slice(-1))
+        var whichButton = assign.id.slice(-1)//substring of button id #
         
         loadedFileAudioBuffers[whichButton] = buffer;
         console.log("stored file", loadedFileAudioBuffer);
@@ -63,7 +64,7 @@ const playSound = (event) => {
     var clickedButton = event.currentTarget;
     clickedButton.classList.add('padHighlighted');
 
-    var whichButton = clickedButton.//substring of button id #
+    var whichButton = clickedButton.id.slice(-1)//substring of button id #
 
     player = browserAudioLibrary.createBufferSource();
     player.buffer = loadedFileAudioBuffers[whichButton];
